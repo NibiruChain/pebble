@@ -112,14 +112,14 @@ func Open(dirname string, opts *Options) (db *DB, _ error) {
 			return nil, err
 		}
 		fileLock = opts.Lock
-	} else {
+	} else if !opts.ReadOnly {
 		fileLock, err = LockDirectory(dirname, opts.FS)
 		if err != nil {
 			return nil, err
 		}
 	}
 	defer func() {
-		if db == nil {
+		if db == nil && fileLock != nil {
 			fileLock.Close()
 		}
 	}()

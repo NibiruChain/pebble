@@ -1606,7 +1606,9 @@ func (d *DB) Close() error {
 	} else if d.mu.log.LogWriter != nil {
 		panic("pebble: log-writer should be nil in read-only mode")
 	}
-	err = firstError(err, d.fileLock.Close())
+	if d.fileLock != nil {
+		err = firstError(err, d.fileLock.Close())
+	}
 
 	// Note that versionSet.close() only closes the MANIFEST. The versions list
 	// is still valid for the checks below.
