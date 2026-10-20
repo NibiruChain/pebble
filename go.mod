@@ -16,7 +16,7 @@ require (
 	github.com/golang/snappy v0.0.5-0.20231225225746-43d5d4cd4e0e
 	github.com/google/btree v1.1.3
 	github.com/guptarohit/asciigraph v0.5.5
-	github.com/klauspost/compress v1.17.11
+	github.com/klauspost/compress v1.18.7
 	github.com/kr/pretty v0.3.1
 	github.com/minio/minlz v1.0.1-0.20250507153514-87eb42fe8882
 	github.com/olekukonko/tablewriter v0.0.5
